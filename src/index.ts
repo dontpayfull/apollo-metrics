@@ -13,7 +13,7 @@ function filterUndefined(from: {
 }
 
 export default function createMetricsPlugin(
-  register: Registry
+  register: Registry, histogramBuckets: Array<number>
 ): ApolloServerPlugin {
   const parsed = new Counter({
     name: "graphql_queries_parsed",
@@ -63,6 +63,7 @@ export default function createMetricsPlugin(
     name: "graphql_resolver_time",
     help: "The time to resolve a GraphQL field.",
     labelNames: ["parentType", "fieldName", "returnType"],
+    buckets: histogramBuckets,
     registers: [register]
   });
 
@@ -70,6 +71,7 @@ export default function createMetricsPlugin(
     name: "graphql_total_request_time",
     help: "The time to complete a GraphQL query.",
     labelNames: ["operationName", "operation"],
+    buckets: histogramBuckets,
     registers: [register]
   });
 
