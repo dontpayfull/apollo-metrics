@@ -23,8 +23,8 @@
     "prom-client": "^11.5.3",
     "rollup": "^1.27.8",
     "rollup-plugin-typescript2": "^0.25.3",
-    "typescript": "^3.7.3",
-    "semantic-release": "^15.13.31"
+    "semantic-release": "^15.13.31",
+    "typescript": "^3.7.3"
   },
   "peerDependencies": {
     "prom-client": "^11.5.3"
